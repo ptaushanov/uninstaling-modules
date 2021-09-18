@@ -7,7 +7,13 @@ window.addEventListener("DOMContentLoaded", () => {
   const isEven = (n) => n % 2 === 0;
   const filteredArray = numbersArray.filter(isEven);
   
-  const appendListItem = number => ul.innerHTML += `<li> ${number} </li>`
-  filteredArray.forEach(appendListItem)
+  const createListItem = number => {
+    const el = document.createElement("li")
+    el.textContent = number
+    return el;
+  }
+
+  const appendNumber = number => ul.appendChild(createListItem(number))
+  filteredArray.forEach(appendNumber)
   
 });
